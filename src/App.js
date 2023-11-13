@@ -1,10 +1,14 @@
 import './App.css';
 import { Route, Routes } from "react-router-dom";
+
 import Navigation from "./Pages/navigation/navigation.component";
 import Home from "./Pages/home/home.component";
 import AddProd from './Pages/addProduct/addProduct.component';
+
 import HomeComponent from './components/home-component/home.component';
 import Cart from './Pages/cart/cart.component';
+
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -17,6 +21,20 @@ function App() {
           <Route path='allProds' element={<HomeComponent />} />
         </Route>
       </Routes>
+
+
+      <ToastContainer
+        position="bottom-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }

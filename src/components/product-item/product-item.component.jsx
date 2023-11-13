@@ -7,6 +7,9 @@ import edit from '../../assets/images/edit.png';
 import deleteIcon from '../../assets/images/delete.png';
 import cart from '../../assets/images/cart.png';
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import ReactStars from "react-stars";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -51,6 +54,7 @@ export default function ProductItem({ product }){
 
     const addProductToCart = () => {
         dispatch(addItemToCart(cartItems, product));
+        toast("Product Added to cart!");
     };
     
     const handelSave = () => {
@@ -61,12 +65,14 @@ export default function ProductItem({ product }){
             description: newDescription,
         };
     
+        toast("Product Updated");
         dispatch(saveEditProduct(products, product, newValues));
         setBeingEditied(false);
     };
     
     const handelDelete = () => {
         dispatch(deleteProduct(products, product));
+        toast("Product Deleted");
     };
 
     const handelShowDetails = () => {

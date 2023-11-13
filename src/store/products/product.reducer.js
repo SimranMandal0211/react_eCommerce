@@ -1,4 +1,4 @@
-import { PRODUCTS_ACTION_TYPES } from './products.type';
+import { PRODUCTS_ACTION_TYPES } from './product.type';
 
 export const PRODUCTS_INITIAL_STATE = {
     products: [],

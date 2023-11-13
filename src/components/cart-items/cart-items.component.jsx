@@ -1,5 +1,6 @@
 import "./cart-items.styles.css";
 
+import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCartItems } from "../../store/cart/cart.selector";
 import { removeItemFromCart, incQuantity, decQuantity } from "../../store/cart/cart.action";
@@ -12,14 +13,17 @@ function CartItem({ cartItem }) {
 
   const handelDelete = () => {
     dispatch(removeItemFromCart(cartItems, cartItem));
+    toast("Item Removed!");
   };
 
   const handelIncrease = () => {
     dispatch(incQuantity(cartItems, cartItem));
+    toast("Item Added!");
   };
 
   const handelDecrease = () => {
     dispatch(decQuantity(cartItems, cartItem));
+    toast("Item Removed!");
   };
 
   return (

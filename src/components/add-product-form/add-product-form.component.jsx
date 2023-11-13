@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import {useDispatch, useSelector} from 'react-redux';
 
+import { toast } from "react-toastify";
 import { addProduct } from '../../store/products/product.action';
 import { selectProductsArray } from "../../store/products/product.selector";
 
@@ -30,8 +31,9 @@ export default function AddProductForm(){
             id: Date.now(),
         };
 
-        navigate('/allProds');
         dispatch(addProduct(products, newProduct));
+        toast("Product Added TO db");
+        navigate('/allProds');   
     };
 
 
@@ -48,7 +50,7 @@ export default function AddProductForm(){
 
             <input 
                 type='text'
-                placeholder='Price'
+                placeholder='Description'
                 value={description}
                 onChange={(e) => setdescription(e.target.value)}
             />

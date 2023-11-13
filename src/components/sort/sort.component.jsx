@@ -6,6 +6,9 @@ import { selectIsSorted } from "../../store/products/product.selector";
 import { selectSortedProds } from "../../store/products/product.selector";
 import { sortProduct, unsortProduct } from "../../store/products/product.action";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Sort(){
     const products = useSelector(selectProductsArray);
     const sortedProds = useSelector(selectSortedProds);
@@ -16,8 +19,10 @@ export default function Sort(){
     const handelSort = () => {
         if (!isSorted) {
           dispatch(sortProduct(sortedProds));
+          toast("Products Sorted!");
         } else {
           dispatch(unsortProduct(products));
+          toast("Products Unsorted!");
         }
     };
 
