@@ -5,6 +5,8 @@ import React from "react";
 
 import { Outlet, Link } from 'react-router-dom';
 
+import CartIcon from '../../components/cart-icon/cart-icon.component';
+
 export default function Navigation() {
     return (
         <>
@@ -26,7 +28,7 @@ export default function Navigation() {
 
                 <div className='sectionTwo'>
                     <Link className='navLinks' to='cart'>
-                        Cart Icon
+                        <CartIcon />
                     </Link>
 
                     <div className='navItem'>
