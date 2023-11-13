@@ -7,6 +7,7 @@ import AddProd from './Pages/addProduct/addProduct.component';
 
 import HomeComponent from './components/home-component/home.component';
 import Cart from './Pages/cart/cart.component';
+import ProductDetail from './components/product-detail/product-detail.component';
 
 import { ToastContainer } from "react-toastify";
 
@@ -19,6 +20,7 @@ function App() {
           <Route path='addProd' element={<AddProd />} />
           <Route path='cart' element={<Cart />} />
           <Route path='allProds' element={<HomeComponent />} />
+          <Route path="product/:id" element={<ProductDetail />} />
         </Route>
       </Routes>
 

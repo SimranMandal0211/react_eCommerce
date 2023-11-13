@@ -32,7 +32,7 @@ export default function AddProductForm(){
         };
 
         dispatch(addProduct(products, newProduct));
-        toast("Product Added TO db");
+        toast("Product Added To db");
         navigate('/allProds');   
     };
 

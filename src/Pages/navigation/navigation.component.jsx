@@ -12,11 +12,11 @@ export default function Navigation() {
         <>
             <div className='navBar'>
                 <div className='sectionOne'>
-                    <Link className='navLinks' to='allProds'>
+                    <Link className='navLinks' to='/'>
                         <h2 className='logo'>Emart</h2>
                     </Link>
 
-                    <Link className='navLinks' to="allProd">
+                    <Link className='navLinks' to="allProds">
                         Products
                     </Link>
 
