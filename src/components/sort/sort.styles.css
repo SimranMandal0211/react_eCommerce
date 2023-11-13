@@ -1,12 +1,17 @@
 .sort-btn {
     background-color: #f2f2f2;
+    box-shadow: 0px 2px 7px 1px #bebebe;
     padding: 10px;
     border-radius: 35px;
-    width: 12%;
+    width: 15%;
     margin: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     font-style: italic;
+  }
+
+  .sort-btn:hover{
+    background-color: rgb(172, 172, 172);
   }
