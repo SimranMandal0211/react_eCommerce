@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom';
 
 import {useDispatch, useSelector} from 'react-redux';
 
+import { addProduct } from '../../store/products/product.action';
+import { selectProductsArray } from "../../store/products/product.selector";
+
 export default function AddProductForm(){
     const [title, setTitle] = useState("");
     const [description, setdescription] = useState('');
@@ -13,6 +16,9 @@ export default function AddProductForm(){
     const [image, setImage] = useState('');
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const products = useSelector(selectProductsArray);
 
     const handleAddProduct = () => {
         const newProduct = {
@@ -25,6 +31,7 @@ export default function AddProductForm(){
         };
 
         navigate('/allProds');
+        dispatch(addProduct(products, newProduct));
     };
 
 

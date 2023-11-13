@@ -4,7 +4,7 @@ import './product-item.styles.css';
 import tick from '../../assets/images/tick.png';
 import cross from '../../assets/images/cross.png';
 import edit from '../../assets/images/edit.png';
-import delete from '../../assets/images/delete.png';
+import deleteIcon from '../../assets/images/delete.png';
 import cart from '../../assets/images/cart.png';
 
 import ReactStars from "react-stars";
@@ -12,11 +12,19 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import { selectCartItems } from "../../store/cart/cart.selector";
+import { selectProductsArray } from "../../store/products/product.selector";
+import { saveEditProduct, deleteProduct } from "../../store/products/product.action";
+import { addItemToCart } from "../../store/cart/cart.action";
 
 export default function ProductItem({ product }){
     const { title, price, images, rating, description, id  } = product;
 
+    const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const cartItems = useSelector(selectCartItems);
+    const products = useSelector(selectProductsArray);
 
     // For edit Cart Item
     const [beingEditied, setBeingEditied] = useState(false);
@@ -41,15 +49,35 @@ export default function ProductItem({ product }){
         setNewDescription(e.target.value);
     }
 
-    // 43
+    const addProductToCart = () => {
+        dispatch(addItemToCart(cartItems, product));
+    };
+    
+    const handelSave = () => {
+        const newValues = {
+            title: newTitle,
+            price: newPrice,
+            rating: newRating,
+            description: newDescription,
+        };
+    
+        dispatch(saveEditProduct(products, product, newValues));
+        setBeingEditied(false);
+    };
+    
+    const handelDelete = () => {
+        dispatch(deleteProduct(products, product));
+    };
 
-
+    const handelShowDetails = () => {
+        navigate(`/product/${id}`);
+    };
 
 
     return(
         <div className='product-card'>
             <div className="image-price-rating-container">
-                <img src={images[0]} alt={title} onClick={handleShowDetails} />
+                <img src={images[0]} alt={title} onClick={handelShowDetails} />
 
                 <div className="title-rating-price">
                     <div className="title-container">
@@ -106,7 +134,7 @@ export default function ProductItem({ product }){
                 <div>
                     {beingEditied ? (
                         <div className="action-container">
-                            <div className="action-icon" onClick={handleSave}>
+                            <div className="action-icon" onClick={handelSave}>
                                 <img src={tick} alt='save'/>
                             </div>
 
@@ -122,8 +150,8 @@ export default function ProductItem({ product }){
                             onClick={() => setBeingEditied(true)}>
                                 <img src={edit} alt='edit'/>
                             </div>
-                            <div className="action-icon" onClick={handleDelete}>
-                                <img src={delete} alt='delete'/>
+                            <div className="action-icon" onClick={handelDelete}>
+                                <img src={deleteIcon} alt='delete'/>
                             </div>
                             <div className="action-icon" onClick={addProductToCart}>
                                 <img src={cart} alt='addToCart'/>

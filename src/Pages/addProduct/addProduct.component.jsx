@@ -1,6 +1,6 @@
 import React from 'react';
 import AddProductForm from '../../components/add-product-form/add-product-form.component';
-import './addProd.styles.css';
+import './addProduct.styles.css';
 
 export default function AddProd(){
     return(

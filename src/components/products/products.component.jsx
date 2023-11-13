@@ -1,12 +1,28 @@
 import React from "react";
 import ProductItem from "../product-item/product-item.component";
 
+import { useSelector } from "react-redux";
+import { selectProductsArray } from "../../store/products/product.selector";
+import { selectSortedProds } from "../../store/products/product.selector";
+import { selectIsSorted } from "../../store/products/product.selector";
 
 export default function Products(){
+    const products = useSelector(selectProductsArray);
+    const sortedProducts = useSelector(selectSortedProds);
+    const isSorted = useSelector(selectIsSorted);
+
+    const productsArray = products.data;
+
     return (
         <>
-            <h1>Products</h1>
-            <ProductItem product={product} />
+            {isSorted
+        ? sortedProducts.data.map((product) => (
+            <ProductItem key={product.id} product={product} />
+          ))
+        : productsArray &&
+          productsArray.map((product) => (
+            <ProductItem key={product.id} product={product} />
+          ))}
         </>
     )
 }
