@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/react_eCommerce/static/css/main.6b7a015b.css",
+    "main.js": "/react_eCommerce/static/js/main.d81161fd.js",
+    "static/media/cross.png": "/react_eCommerce/static/media/cross.a8f095413a7b84d22016.png",
+    "static/media/cart.png": "/react_eCommerce/static/media/cart.d3e3b1bdff31584d15ee.png",
+    "static/media/tick.png": "/react_eCommerce/static/media/tick.6f298cca57a5a8b36055.png",
+    "static/media/shopping-bag.svg": "/react_eCommerce/static/media/shopping-bag.cfde1decc45a06eff1f2a4ec5ae00b01.svg",
+    "index.html": "/react_eCommerce/index.html",
+    "main.6b7a015b.css.map": "/react_eCommerce/static/css/main.6b7a015b.css.map",
+    "main.d81161fd.js.map": "/react_eCommerce/static/js/main.d81161fd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6b7a015b.css",
+    "static/js/main.d81161fd.js"
+  ]
+}
